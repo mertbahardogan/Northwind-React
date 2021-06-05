@@ -6,6 +6,7 @@ export default function ProductList() {
   const [products, setProducts] = useState([]);
 
   //sayfa yüklendiğinde bu çalışcak. Component didmount olduğunda yani.
+  //Önemli.
   useEffect(() => {
     let productService = new ProductService();
     productService
