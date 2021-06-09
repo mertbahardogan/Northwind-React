@@ -3,7 +3,6 @@ import { Icon, Menu, Table } from "semantic-ui-react";
 import ProductService from "../services/productService";
 
 export default function ProductList() {
-  //
   const [products, setProducts] = useState([]);
 
   //sayfa yüklendiğinde bu çalışcak. Component didmount olduğunda yani.
@@ -12,7 +11,7 @@ export default function ProductList() {
     productService
       .getProducts()
       .then((result) => setProducts(result.data.data));
-  });
+  }, []);
 
   return (
     <div>
