@@ -1,3 +1,3 @@
 export const cartItems = [
-  { quantity: 1, product: { productName: "Çubuk Kraker" } },
+  //   { quantity: 1, product: { productName: "Çubuk Kraker" } },
 ];
