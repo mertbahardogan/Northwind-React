@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import { Container, Menu } from "semantic-ui-react";
 import CartSummary from "./CartSummary";
 import SignedIn from "./SignedIn";
@@ -6,10 +7,12 @@ import SignedOut from "./SignedOut";
 
 export default function Navi() {
   //data tutacak isek aklımıza STATE gelecek
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const history = useHistory();
 
   function handleSignOut(params) {
     setIsAuthenticated(false);
+    history.push("/");
   }
 
   function handleSignIn(params) {

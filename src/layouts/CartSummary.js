@@ -1,14 +1,18 @@
 import React from "react";
-import { Dropdown } from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
+import { Dropdown, DropdownDivider, DropdownItem } from "semantic-ui-react";
 
 export default function CartSummary() {
   return (
     <div>
-      <Dropdown item text="Sepet Özet">
+      <Dropdown item text="Sepetiniz">
         <Dropdown.Menu>
-          <Dropdown.Item>English</Dropdown.Item>
-          <Dropdown.Item>Russian</Dropdown.Item>
-          <Dropdown.Item>Spanish</Dropdown.Item>
+          <Dropdown.Item>Acer Laptop</Dropdown.Item>
+          <Dropdown.Item>Asus Laptop</Dropdown.Item>
+          <Dropdown.Item>Dell Laptop</Dropdown.Item>
+          <DropdownDivider></DropdownDivider>
+          {/* Link veya NavLink*/}
+          <DropdownItem as={NavLink} to="/cart">Sepete Git</DropdownItem>
         </Dropdown.Menu>
       </Dropdown>
     </div>
