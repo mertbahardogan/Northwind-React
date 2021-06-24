@@ -7,7 +7,8 @@ import { addToCart } from "../store/actions/cartActions";
 import { toast } from "react-toastify";
 
 export default function ProductList() {
-  const dispatch = useDispatch();
+  //Redux aksiyonlarını tetiklememizi sağlayan hook: useDispatch.
+  const dispatch = useDispatch(); 
 
   const [products, setProducts] = useState([]);
 
@@ -49,9 +50,9 @@ export default function ProductList() {
               <Table.Cell>{product.unitPrice}</Table.Cell>
               <Table.Cell>{product.unitsInStock}</Table.Cell>
               <Table.Cell>{product.quantityPerUnit}</Table.Cell>
-              <Table.Cell>{product.category.categoryName}</Table.Cell>
+              <Table.Cell>{product.category?.categoryName}</Table.Cell>
               <Table.Cell>
-                <Button onClick={() => handleAddToCart(product)}>
+                <Button color="green" onClick={() => handleAddToCart(product)}>
                   Sepete Ekle
                 </Button>
               </Table.Cell>

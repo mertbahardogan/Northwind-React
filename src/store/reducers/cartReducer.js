@@ -25,7 +25,7 @@ export default function cartReducer(state = initialState, { type, payload }) {
         };
       }
     case REMOVE_TO_CART:
-      //Burası eşleşmeyenler ile yeni bir array oluşturur
+      //Burası eşleşmeyenler ile yeni bir array oluşturur eklemedeki mantık ile aynı
       return {
         ...state,
         cartItems: state.cartItems.filter((c) => c.product.id !== payload.id),

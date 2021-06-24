@@ -1,14 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {
-  Dropdown,
-  Label,
-} from "semantic-ui-react";
+import { Dropdown, Label, Button } from "semantic-ui-react";
 import { useSelector } from "react-redux";
-//HATA VARRRRRRRRRRRRRRR
+import { useDispatch } from "react-redux";
+import { removeToCart } from "../store/actions/cartActions";
+import { toast } from "react-toastify";
+
 export default function CartSummary() {
   //globalstate okuyoruz, abone olduk reduxa
+  //Yani; redux store state'e erişim yapmamızı sağlayan hook useSelector'dür.
   const { cartItems } = useSelector((state) => state.cart);
+
+  const dispatch = useDispatch();
+
+  const handleRemoveFromCart = (cartItem) => {
+    dispatch(removeToCart(cartItem.product));
+    toast.success(`${cartItem.product.productName} sepetten kaldırıldı.`);
+  };
 
   return (
     <div>
@@ -18,6 +26,7 @@ export default function CartSummary() {
             <Dropdown.Item>
               {cartItem.product.productName}
               <Label>{cartItem.quantity}</Label>
+              <Button color="red" onClick={() => handleRemoveFromCart(cartItem)}>x</Button>
             </Dropdown.Item>
           ))}
           <Dropdown.Divider />
