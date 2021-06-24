@@ -15,7 +15,7 @@ export default function CartSummary() {
 
   const handleRemoveFromCart = (cartItem) => {
     dispatch(removeToCart(cartItem.product));
-    toast.success(`${cartItem.product.productName} sepetten kaldırıldı.`);
+    toast.error(`${cartItem.product.productName} sepetten kaldırıldı.`);
   };
 
   return (
